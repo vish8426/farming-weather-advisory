@@ -1,21 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'; 
 
 const Login: React.FC = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        // Redirect if already logged in
+        const loggedIn = localStorage.getItem('isLoggedIn');
+        
+        if(loggedIn === 'true') {
+            navigate('/dashboard');
+        }
+
+        // Simulate user registration on first load
+        if (!localStorage.getItem('user')) {
+            const defaultUser = {email: 'test@test.com', password: '123456'};
+            localStorage.setItem('user', JSON.stringify(defaultUser));
+        }
+    }, []);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // In a real app you send this to your backend authentication provider
-        console.log('Login Attempt:', { email, password });
-        alert('Login Logic not Implmented Yet');
+        const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+    
+        if (email === storedUser.email && password === storedUser.password) {
+            localStorage.setItem('isLoggedIn', 'true');
+            navigate('/dashboard');
+        }
+        else {
+            setError('Invalid Email or Password');
+        }
+
+        // // In a real app you send this to your backend authentication provider
+        // console.log('Login Attempt:', { email, password });
+        // alert('Login Logic not Implmented Yet');
     };
 
     return (
         <div className="login-container">
-            <h2>Logic</h2>
+            <h2>Login</h2>
             <form onSubmit={handleLogin} className='login-form'>
                 <label>Email</label>
                 <input
@@ -32,6 +60,8 @@ const Login: React.FC = () => {
                     onChange={e => setPassword(e.target.value)}
                     required
                 />
+
+                {error && <p style={{color: 'red' }}>{error}</p>}
 
                 <button type='submit'>Login</button>
             </form>
