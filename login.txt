@@ -1,0 +1,4 @@
+This is the Local Storage login credentials for this application. 
+
+Email: test@test.com
+Password: 123456
