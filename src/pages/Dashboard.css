@@ -1,0 +1,54 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #5b7553;
+    background-color: #f8f9fb;
+}
+
+.dashboard-header {
+    text-align: centre;
+    margin-bottom: 2rem;
+}
+
+.weather-card,
+.advisory-card {
+    background-color: #ece5c7;
+    border-left: 6px solid #5b7553;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
+}
+
+.weather-card h2,
+.advisory-card h2 {
+    margin-bottom: 1rem;
+    color: #395144;
+}
+
+.advisory-card ul {
+    padding-left: 1.5rem;
+}
+
+.dashboard-footer {
+    text-align: center;
+}
+
+.dashboard-footer button {
+    background-color: #a0c49d;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-footer button:hover {
+    background-color: #395144;
+}
