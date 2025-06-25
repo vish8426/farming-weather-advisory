@@ -1,9 +1,32 @@
-import React  from "react";
+import React, { useEffect, useState }  from "react";
 import './Dashboard.css';
 import { useNavigate } from "react-router-dom";
+import { getCurrentWeather } from "../services/weather";
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
+    const [weather, setWeather] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const data = await getCurrentWeather('Gatton, Queensland, Australia');
+                setWeather(data);
+            }
+            catch (err) {
+                setError('Failed to Fetch Weather');
+            }
+            finally
+            {
+                setLoading(false);
+            }
+        };
+
+        fetchWeather();
+
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('isLoggedIn');
@@ -13,14 +36,20 @@ const Dashboard: React.FC = () => {
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <h1>🌾 Welcome Back, User!</h1>
+                <h1>🌾 Welcome Back!</h1>
             </header>
 
             <section className="weather-card">
                 <h2>☀️ Weather Summary</h2>
-                <p><strong>Temperature:</strong> 28°C</p>
-                <p><strong>Condition:</strong> Sunny</p>
-                <p><strong>Humidity:</strong> 40%</p>
+                {loading && <p>Loading Weather...</p>}
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                {weather && (
+                    <>
+                        <p><strong>Temperature:</strong> {weather.current.temp_c}°C</p>
+                        <p><strong>Condition:</strong> {weather.current.condition.text}</p>
+                        <p><strong>Humidity:</strong> {weather.current.humidity}%</p>
+                    </>
+                )}
             </section>
 
             <section className="advisory-card">
