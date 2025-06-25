@@ -58,6 +58,9 @@ Email: test@test.com
 Password: 123456
 ```
 
+## 5. Weather API Required
+The version of the application you will likely be viewing will not have any live integration to a Weather API so will display dud, missing or static weather statistics and evaluations. 
+
 ## 📁 Project Structure (Simplified)
 ```bash
 src/
