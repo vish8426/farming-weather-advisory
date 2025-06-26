@@ -1,7 +1,57 @@
 /* Login.css */
 
+/* Animations */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05); /* Slight Scale Up */
+    opacity: 0.95;          /* Optional: Tiny Fade */
+  }
+}
+
+/* Styles */ 
 body {
   background-color: #ece5c7; 
+}
+
+.login-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-logo {
+  display: block;
+  margin: 1rem auto;
+  width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+
+  animation:
+    fadeSlideIn 0.8s ease-out forwards,
+    softPulse 2s ease-in-out infinite;
+  animation-delay: 0s, 0.8s;
+}
+
+.login-header h1 {
+  font-size: 1.5rem;
+  color: #5b7553;
+  font-weight: bold;
 }
 
 .login-container {

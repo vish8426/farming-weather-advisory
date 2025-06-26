@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; 
+import logo from '../assets/logo.png';
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
@@ -42,30 +43,37 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleLogin} className='login-form'>
-                <label>Email</label>
-                <input
-                    type='email'
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                />
-                
-                <label>Password</label>
-                <input
-                    type='password'
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
+        <>
+            <div className='login-header'>
+                <h1>Farming Weather Advisory Application</h1>
+            </div>
 
-                {error && <p style={{color: 'red' }}>{error}</p>}
+            <div className='login-container'>
+                <h2>Login</h2>
+                <img src={logo} alt="App Logo" className="login-logo" />
+                <form onSubmit={handleLogin} className='login-form'>
+                    <label>Email</label>
+                    <input
+                        type='email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                    />
+                    
+                    <label>Password</label>
+                    <input
+                        type='password'
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                    />
 
-                <button type='submit'>Login</button>
-            </form>
-        </div>
+                    {error && <p style={{color: 'red' }}>{error}</p>}
+
+                    <button type='submit'>Login</button>
+                </form>
+            </div>
+        </>
     );
 };
 
