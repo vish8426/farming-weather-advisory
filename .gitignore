@@ -28,3 +28,6 @@ dist-ssr
 
 # Environmental Variables
 .env
+
+# Docs
+/docs/ToDo.txt

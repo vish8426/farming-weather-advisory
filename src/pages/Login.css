@@ -54,6 +54,24 @@ body {
   font-weight: bold;
 }
 
+.login-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.login-footer a {
+  color: #5b7553;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
 .login-container {
   max-width: 400px;
   margin: 80px auto;

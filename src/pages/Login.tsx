@@ -50,7 +50,9 @@ const Login: React.FC = () => {
 
             <div className='login-container'>
                 <h2>Login</h2>
+
                 <img src={logo} alt="App Logo" className="login-logo" />
+
                 <form onSubmit={handleLogin} className='login-form'>
                     <label>Email</label>
                     <input
@@ -72,6 +74,10 @@ const Login: React.FC = () => {
 
                     <button type='submit'>Login</button>
                 </form>
+
+                <footer className='login-footer'>
+                    <p>Powered by 🌌<a href="https://github.com/vish8426" target="_blank" rel="noopener noreferrer">Vish</a></p>
+                </footer>
             </div>
         </>
     );
