@@ -2,6 +2,7 @@ import React, { useEffect, useState }  from "react";
 import './Dashboard.css';
 import { useNavigate } from "react-router-dom";
 import { getCurrentWeather } from "../services/weather";
+import { getAdvisories } from "../utils/advisoryEngine";
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
@@ -33,6 +34,15 @@ const Dashboard: React.FC = () => {
         navigate('/login');
     };
 
+const advisories = weather
+    ? getAdvisories({
+        temp_c: weather.current.temp_c,
+        humidity: weather.current.humidity,
+        wind_kph: weather.current.wind_kph,
+         condition: weather.current.condition.text,
+    })
+    : [];
+
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
@@ -55,8 +65,9 @@ const Dashboard: React.FC = () => {
             <section className="advisory-card">
                 <h2>🧠 Farming Advisory</h2>
                 <ul>
-                    <li>Good Time to Irrigate Leafy Crops.</li>
-                    <li>Avoid Planting Tomorrow (High Winds).</li>
+                    {advisories.map((adv, idx) => (
+                    <li key={idx}>{adv}</li>
+                    ))}
                 </ul>
             </section>
 
