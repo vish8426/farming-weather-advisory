@@ -52,3 +52,33 @@
 .dashboard-footer button:hover {
     background-color: #395144;
 }
+
+.forecast-card {
+    color: #395144;
+    margin-top: 2rem;
+    background-color: #ece5c7;
+    border-left: 6px solid #5b7553;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+.forecast-day {
+    background-color: #f1f7f3;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.forecast-day img {
+    width: 40px;
+    height: 40px;
+}

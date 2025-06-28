@@ -14,3 +14,16 @@ export const getCurrentWeather = async (location: string) => {
 
     return response.data;
 };
+
+export const fetchSevenDayForecast = async (location: string) => {
+    const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json`, {
+        params: {
+            key: API_KEY,
+            q: location,
+            days: 7
+        },
+    });
+
+    // Returns an Array of 7 Days
+    return response.data.forecast.forecastday; 
+};
