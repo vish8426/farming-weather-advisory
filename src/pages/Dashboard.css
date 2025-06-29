@@ -84,9 +84,10 @@
 }
 
 .trends-container {
-    background-color: #f1f7f3;
+    background-color: #ffff;
     padding: 1rem;
     margin-top: 2rem;
+    margin-bottom: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(91, 117, 83, 0.1);
     font-family: 'Segoe UI', sans-serif;
