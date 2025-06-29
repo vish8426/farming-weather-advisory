@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getCurrentWeather } from "../services/weather";
 import { fetchSevenDayForecast } from "../services/weather"
 import { getAdvisories } from "../utils/advisoryEngine";
+import WeatherTrends from "./WeatherTrends";
 
 interface ForecastDay {
     date: string;
@@ -118,6 +119,8 @@ const toTitleCase = (str: string) => {
                     ))}
                 </div>
             </div>
+
+            <WeatherTrends />
 
             <footer className="dashboard-footer">
                 <button onClick={handleLogout}>Logout</button>
