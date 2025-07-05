@@ -2,11 +2,14 @@
 
 .dashboard-container {
     max-width: 800px;
+    width: 95%;
     margin: 0 auto;
     padding: 2rem;
     font-family: 'Segoe UI', sans-serif;
     color: #5b7553;
     background-color: #f1f7f3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
 }
 
 .dashboard-header {
