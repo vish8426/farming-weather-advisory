@@ -1,0 +1,32 @@
+.trends-container {
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #5b7553;
+    background-color: #5b7553;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
+}
+
+.trends-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #101613;
+}
+
+.trends-card {
+    background-color: #ffffff;
+    border-left: 6px solid #5b7553;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.1);
+}
+
+.trends-card h3 {
+    text-align: center;
+    color: #395144;
+    margin-bottom: 0.5rem;
+}

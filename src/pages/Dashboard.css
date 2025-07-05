@@ -50,6 +50,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 48px;
 }
 
 .dashboard-footer button:hover {
@@ -94,7 +95,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(91, 117, 83, 0.1);
     font-family: 'Segoe UI', sans-serif;
-    color: #5b7553;
+    color: #c7c7c7;
 }
 
 .trends-container h2 {
