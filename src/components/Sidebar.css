@@ -1,0 +1,36 @@
+.sidebar {
+    width: 200px;
+    margin-top: 15px;
+    background-color: #f1f7f3;
+    min-height: 100vh;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    border-radius: 12px; 
+    box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    color: #395144;
+    margin-bottom: 1rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav li {
+    margin: 0.5rem 0;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #5b7553;
+    font-weight: 500;
+}
+
+.sidebar nav a:hover {
+    color: #395144;
+}
