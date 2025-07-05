@@ -1,13 +1,14 @@
 .trends-container {
     max-width: 800px;
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;                 
     padding: 2rem;
     font-family: 'Segoe UI', sans-serif;
     color: #5b7553;
     background-color: #5b7553;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(91, 117, 83, 0.15);
+    margin: 0 auto;              
+    margin-top: 0px;
 }
 
 .trends-container h2 {

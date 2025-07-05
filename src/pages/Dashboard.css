@@ -1,8 +1,7 @@
 /* Dashboard.css */
 
 .dashboard-container {
-    max-width: 800px;
-    width: 95%;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
     font-family: 'Segoe UI', sans-serif;
