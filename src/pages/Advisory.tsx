@@ -85,8 +85,6 @@ const Advisory: React.FC = () => {
         return advisories;
     };
 
-    const advisories = generateWheatAdvisories();
-
     return (
         <div className="advisory-container">
             <h1>📊 Farming Advisory</h1>
