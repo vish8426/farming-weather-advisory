@@ -43,7 +43,7 @@ const Login: React.FC = () => {
     };
 
     return (
-        <>
+        <div className="login-page">
             <div className='login-header'>
                 <h1>Farming Weather Advisory Application</h1>
             </div>
@@ -61,7 +61,7 @@ const Login: React.FC = () => {
                         onChange={e => setEmail(e.target.value)}
                         required
                     />
-                    
+
                     <label>Password</label>
                     <input
                         type='password'
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
                         required
                     />
 
-                    {error && <p style={{color: 'red' }}>{error}</p>}
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
 
                     <button type='submit'>Login</button>
                 </form>
@@ -79,7 +79,7 @@ const Login: React.FC = () => {
                     <p>Powered by 🌌<a href="https://github.com/vish8426" target="_blank" rel="noopener noreferrer">Vish</a></p>
                 </footer>
             </div>
-        </>
+        </div>
     );
 };
 

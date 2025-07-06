@@ -24,8 +24,20 @@
 }
 
 /* Styles */ 
-body {
-  background-color: #ece5c7; 
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ece5c7;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        
+    justify-content: center;    
+    min-height: 100vh;          
+    padding: 1rem;
 }
 
 .login-header {
@@ -41,6 +53,7 @@ body {
   width: 300px;
   height: auto;
   margin-bottom: 1rem;
+  box-shadow: 0 4px 20px rgba(91, 117, 83, 0.2);
 
   animation:
     fadeSlideIn 0.8s ease-out forwards,
@@ -74,7 +87,7 @@ body {
 
 .login-container {
   max-width: 400px;
-  margin: 80px auto;
+  margin: 0 auto;             
   padding: 2rem;
   background-color: #fdfcf5;
   border-radius: 12px;
@@ -103,6 +116,7 @@ body {
 .login-form input {
   padding: 10px;
   font-size: 1rem;
+  color: #395144;
   border: 1px solid #d6ce93;
   border-radius: 6px;
   margin-top: 4px;
