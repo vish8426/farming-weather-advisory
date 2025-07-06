@@ -66,11 +66,30 @@ const Advisory: React.FC = () => {
         return advisories;
     };
 
+    const generateGrapeAdvisory = () => {
+        if (!weather) return [];
+        const advisories: string[] = [];
+
+        if (weather.current.temp_c < 15) {
+            advisories.push("Low Temperatures may affect Grape Flowering and Fruit Set.");
+        }
+        if (weather.current.humidity > 85) {
+            advisories.push("High Humidity may Increase Fungal Disease Risk; consider Preventive Fungicide Spray.");
+        }
+        if (weather.current.condition.text.toLowerCase().includes('rain')) {
+            advisories.push("Rain Expected; Monitor for Downy Mildew and Reduce Irrigation Scheduling.");
+        } else {
+            advisories.push("Weather is Favorable for Grape Canopy Management.");
+        }
+
+        return advisories;
+    };
+
     const advisories = generateWheatAdvisories();
 
     return (
         <div className="advisory-container">
-            <h2>🌾 Farming Advisory</h2>
+            <h1>📊 Farming Advisory</h1>
 
             {loading && <p>Loading weather data...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -79,7 +98,8 @@ const Advisory: React.FC = () => {
                 <>
                     {/* Weather Summary Card */}
                     <div className="advisory-card">
-                        <h3>☀️ Today's Weather Summary</h3>
+                        <h2>☀️ Today's Weather Summary</h2>
+                        <p><strong>Location:</strong> Gatton, QLD</p>
                         <p><strong>Temperature:</strong> {weather.current.temp_c}°C</p>
                         <p><strong>Condition:</strong> {weather.current.condition.text.replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
                         <p><strong>Humidity:</strong> {weather.current.humidity}%</p>
@@ -88,9 +108,18 @@ const Advisory: React.FC = () => {
 
                     {/* Wheat Advisory Card */}
                     <div className="advisory-card">
-                        <h3>📝 Wheat Crop Advisory</h3>
+                        <h2>📝 Wheat Crop Advisory</h2>
                         <ul>
-                            {advisories.map((adv, idx) => (
+                            {generateWheatAdvisories().map((adv, idx) => (
+                                <li key={idx}>{adv}</li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="advisory-card">
+                        <h2>🍇 Grape Farming Advisory</h2>
+                        <ul>
+                            {generateGrapeAdvisory().map((adv, idx) => (
                                 <li key={idx}>{adv}</li>
                             ))}
                         </ul>
