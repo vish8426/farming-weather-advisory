@@ -52,6 +52,8 @@ body, html {
   margin: 1rem auto;
   width: 300px;
   height: auto;
+  border-radius: 20%;
+  object-fit: cover;
   margin-bottom: 1rem;
   box-shadow: 0 4px 20px rgba(91, 117, 83, 0.2);
 

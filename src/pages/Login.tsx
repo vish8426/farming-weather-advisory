@@ -45,7 +45,7 @@ const Login: React.FC = () => {
     return (
         <div className="login-page">
             <div className='login-header'>
-                <h1>Farming Weather Advisory Application</h1>
+                <h1>🌱 Farming Weather Advisory Application</h1>
             </div>
 
             <div className='login-container'>
