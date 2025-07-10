@@ -7,14 +7,22 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <div style={{ display: 'flex', minHeight: '100vh' }}>
+        <div
+            style={{
+                display: 'flex',
+                minHeight: '100vh',
+                backgroundColor: 'var(--background)',
+                color: 'var(--foreground)'
+            }}
+        >
             <Sidebar />
             <main
                 style={{
                     flex: 1,
                     padding: '2rem',
-                    margin: '-15px',
-                    maxWidth: '1600px'
+                    maxWidth: '1600px',
+                    backgroundColor: 'var(--background)',
+                    color: 'var(--foreground)'
                 }}
             >
                 {children}
