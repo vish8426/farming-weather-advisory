@@ -6,6 +6,11 @@ const Advisory: React.FC = () => {
     const [weather, setWeather] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const advisories: string[] = [];
+    const temp = weather.current.temp_c;
+    const humidity = weather.current.humidity;
+    const wind = weather.current.wind_kph;
+    const condition = weather.current.condition.text;
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -28,10 +33,7 @@ const Advisory: React.FC = () => {
      const generateWheatAdvisories = () => {
         if (!weather) return [];
 
-        const advisories: string[] = [];
-
         // Temperature Advisory
-        const temp = weather.current.temp_c;
         if (temp < 10) {
             advisories.push(`🌡️ Today's ${temp}°C is Below Optimal; Consider Frost Protection.`);
         } 
@@ -43,19 +45,16 @@ const Advisory: React.FC = () => {
         }
 
         // Humidity Advisory
-        const humidity = weather.current.humidity;
         if (humidity > 85) {
             advisories.push(`💧 High Humidity (${humidity}%) Detected; Monitor for Fungal Diseases.`);
         }
 
         // Wind advisory
-        const wind = weather.current.wind_kph;
         if (wind > 30) {
             advisories.push(`💨 Strong Winds (${wind} kph) expected; Secure Equipment and Young Plants.`);
         }
 
         // Rain Advisory
-        const condition = weather.current.condition.text;
         if (condition.toLowerCase().includes('rain')) {
             advisories.push(`🌧️ Rain Expected; Monitor Soil Moisture and Plan Fieldwork.`);
         }
@@ -70,17 +69,59 @@ const Advisory: React.FC = () => {
         if (!weather) return [];
         const advisories: string[] = [];
 
+        // Temperature Advisory
         if (weather.current.temp_c < 15) {
-            advisories.push("Low Temperatures may affect Grape Flowering and Fruit Set.");
+            advisories.push("🧊 Low Temperatures may affect Grape Flowering and Fruit Set.");
         }
+
+        // Humidity Advisory
         if (weather.current.humidity > 85) {
-            advisories.push("High Humidity may Increase Fungal Disease Risk; consider Preventive Fungicide Spray.");
+            advisories.push("🌡️ High Humidity may Increase Fungal Disease Risk; consider Preventive Fungicide Spray.");
         }
+        
+        // Rain Advisory
         if (weather.current.condition.text.toLowerCase().includes('rain')) {
-            advisories.push("Rain Expected; Monitor for Downy Mildew and Reduce Irrigation Scheduling.");
-        } else {
-            advisories.push("Weather is Favorable for Grape Canopy Management.");
+            advisories.push("🌧️ Rain Expected; Monitor for Downy Mildew and Reduce Irrigation Scheduling.");
+        } 
+        else {
+            advisories.push("✅ Weather is Favorable for Grape Canopy Management.");
         }
+
+        return advisories;
+    };
+
+    const generateOilseedsAdvisory = () => {
+        if (!weather) return [];
+        const advisories: string[] = [];
+
+        // Temperature Advisory
+        if (temp < 12) {
+            advisories.push("🧊 Low Temperatures may affect Oilseed Germination and Growth Rates.");
+        }
+        else if (temp > 32) {
+            advisories.push("🌡️ High Temperatures may cause Moisture Stress; Ensure Adequate Irrigation.");
+        }
+        else {
+            advisories.push(`🌡️ Temperature (${temp}°C) is Suitable for Oilseed Growth.`);
+        }
+
+        // Humidity Advisory
+        if (humidity > 85) {
+            advisories.push("💧 High Humidity may Increase Blackleg and Sclerotinia Risk in Oilseeds.");
+        }
+
+        // Wind Advisory
+        if (wind > 30) {
+            advisories.push(`💨 Strong Winds (${wind} kph) may Cause Lodging; Monitor Crop Stands.`);
+        }
+
+        // Rain Advisory
+        if (condition.includes('rain')) {
+            advisories.push("🌧️ Rain Expected; Monitor Waterlogging in Low-Lying Areas.");
+        }
+
+        // General Reminder
+        advisories.push("✅ Regularly Scout Oilseed Fields for Pest Infestations and Nutrient Deficiencies.");
 
         return advisories;
     };
@@ -118,6 +159,15 @@ const Advisory: React.FC = () => {
                         <h2>🍇 Grape Farming Advisory</h2>
                         <ul>
                             {generateGrapeAdvisory().map((adv, idx) => (
+                                <li key={idx}>{adv}</li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="advisory-card">
+                        <h2>🌱 Oilseeds Advisory</h2>
+                        <ul>
+                            {generateOilseedsAdvisory().map((adv, idx) => (
                                 <li key={idx}>{adv}</li>
                             ))}
                         </ul>
